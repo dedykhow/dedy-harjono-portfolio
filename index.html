@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Dedy Harjono — Data Processing, Reporting, Data Operations, dan analisis data.">
+  <title>Dedy Harjono | Data Processing & Reporting</title>
+  <style>
+    :root {
+      --bg: #f5f7fb; --paper: #ffffff; --ink: #152238; --muted: #64748b;
+      --line: #e3e9f2; --navy: #10213b; --blue: #2563eb; --blue-soft: #eaf1ff;
+      --teal: #0f766e; --shadow: 0 16px 45px rgba(16,33,59,.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height: 1.65; }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: auto; }
+    header { background: var(--navy); color: white; padding: 22px 0 78px; position: relative; overflow: hidden; }
+    header:after { content:""; position:absolute; width:460px; height:460px; border:1px solid rgba(255,255,255,.09); border-radius:50%; right:-130px; top:-250px; box-shadow:0 0 0 55px rgba(255,255,255,.025),0 0 0 110px rgba(255,255,255,.02); }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:20px; position:relative; z-index:1; }
+    .brand { font-weight:800; letter-spacing:.04em; }
+    .navlinks { display:flex; gap:24px; flex-wrap:wrap; font-size:.92rem; }
+    .navlinks a { text-decoration:none; color:#cbd5e1; }
+    .navlinks a:hover { color:white; }
+    .hero { position:relative; z-index:1; padding-top:72px; max-width:790px; }
+    .eyebrow { color:#93c5fd; text-transform:uppercase; letter-spacing:.16em; font-size:.76rem; font-weight:800; }
+    h1 { font-size:clamp(2.6rem, 6vw, 4.6rem); line-height:1.05; margin:14px 0 18px; letter-spacing:-.055em; }
+    .hero p { color:#cbd5e1; font-size:1.1rem; max-width:720px; margin:0; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:11px 17px; border-radius:10px; text-decoration:none; font-weight:700; font-size:.92rem; transition:.18s ease; }
+    .btn-primary { background:#60a5fa; color:#0b1930; }
+    .btn-primary:hover { background:#93c5fd; transform:translateY(-1px); }
+    .btn-ghost { border:1px solid rgba(255,255,255,.25); color:white; }
+    .btn-ghost:hover { background:rgba(255,255,255,.08); }
+    main { padding:0 0 64px; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:-34px; position:relative; z-index:2; }
+    .stat { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:20px 22px; box-shadow:var(--shadow); }
+    .stat strong { display:block; color:var(--navy); font-size:1.65rem; letter-spacing:-.04em; }
+    .stat span { color:var(--muted); font-size:.88rem; }
+    section { padding-top:62px; }
+    .section-head { margin-bottom:22px; }
+    .kicker { color:var(--blue); font-size:.76rem; text-transform:uppercase; letter-spacing:.14em; font-weight:800; }
+    h2 { color:var(--navy); font-size:clamp(1.65rem,3vw,2.2rem); line-height:1.2; letter-spacing:-.035em; margin:7px 0 8px; }
+    .section-intro { color:var(--muted); max-width:720px; margin:0; }
+    .about-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:18px; }
+    .panel, .project, .skill-card, .timeline-item { background:var(--paper); border:1px solid var(--line); border-radius:15px; padding:24px; }
+    .panel p { margin:0 0 12px; color:#40516a; }
+    .panel p:last-child { margin-bottom:0; }
+    .taglist { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .tag { display:inline-block; background:var(--blue-soft); color:#1d4ed8; border-radius:7px; padding:5px 9px; font-size:.8rem; font-weight:700; }
+    .focus-list { list-style:none; padding:0; margin:0; }
+    .focus-list li { padding:10px 0; border-bottom:1px solid var(--line); color:#40516a; }
+    .focus-list li:last-child { border-bottom:0; }
+    .projects { display:grid; grid-template-columns:1fr 1fr; gap:17px; }
+    .project { display:flex; flex-direction:column; min-height:100%; box-shadow:0 8px 25px rgba(16,33,59,.035); }
+    .project.featured { grid-column:1/-1; border-color:#b8cdf7; background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%); }
+    .project-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+    .project-type { color:var(--teal); background:#e8f7f4; border-radius:999px; padding:5px 10px; font-size:.73rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+    .project h3 { color:var(--navy); font-size:1.25rem; margin:0 0 8px; line-height:1.3; }
+    .project p { color:#52627a; margin:0 0 14px; }
+    .project ul { color:#52627a; padding-left:19px; margin:0 0 18px; }
+    .project-links { display:flex; gap:9px; flex-wrap:wrap; margin-top:auto; padding-top:12px; }
+    .project-links a { text-decoration:none; color:var(--blue); font-weight:800; font-size:.88rem; border-bottom:1px solid #b8cdf7; }
+    .project-links a:hover { color:#1e40af; border-color:#1e40af; }
+    .skills { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .skill-card h3 { margin:0 0 8px; color:var(--navy); font-size:1rem; }
+    .skill-card p { margin:0; color:var(--muted); font-size:.92rem; }
+    .timeline { display:grid; gap:13px; }
+    .timeline-item { display:grid; grid-template-columns:190px 1fr; gap:20px; }
+    .period { color:var(--blue); font-weight:800; font-size:.9rem; }
+    .timeline-item h3 { color:var(--navy); margin:0 0 4px; font-size:1.05rem; }
+    .timeline-item .org { color:var(--muted); font-size:.88rem; margin-bottom:8px; }
+    .timeline-item ul { margin:0; padding-left:18px; color:#52627a; }
+    .education { background:var(--navy); color:white; border-radius:17px; padding:27px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .education h3 { margin:0 0 8px; }
+    .education p, .education li { color:#cbd5e1; }
+    .education ul { margin:8px 0 0; padding-left:18px; }
+    .contact { background:#eaf1ff; border:1px solid #d5e3ff; border-radius:17px; padding:28px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .contact h2 { margin-top:0; }
+    .contact p { color:#52627a; margin:0; }
+    .contact-links { display:flex; flex-direction:column; gap:9px; min-width:230px; }
+    .contact-links a { color:#1d4ed8; font-weight:800; text-decoration:none; }
+    footer { color:#8190a5; text-align:center; padding:28px 0 36px; font-size:.82rem; }
+    @media (max-width:760px) {
+      .navlinks { gap:12px; font-size:.82rem; }
+      .stats { grid-template-columns:1fr; margin-top:-28px; }
+      .about-grid, .projects, .skills, .education { grid-template-columns:1fr; }
+      .project.featured { grid-column:auto; }
+      .timeline-item { grid-template-columns:1fr; gap:5px; }
+      .contact { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width:430px) {
+      .wrap { width:min(100% - 28px,1080px); }
+      nav { align-items:flex-start; flex-direction:column; }
+      .hero { padding-top:50px; }
+      .panel,.project,.skill-card,.timeline-item { padding:19px; }
+    }
+  </style>
+</head>
+<body>
+<header id="top">
+  <div class="wrap">
+    <nav>
+      <div class="brand">DEDY HARJONO</div>
+      <div class="navlinks">
+        <a href="#tentang">Tentang</a><a href="#proyek">Proyek</a><a href="#keahlian">Keahlian</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="eyebrow">Portfolio Profesional</div>
+      <h1>Data Processing.<br>Reporting. Data Operations.</h1>
+      <p>Berpengalaman dalam pengelolaan data operasional, rekonsiliasi laporan, pemeriksaan konsistensi data, dan analisis pasar keuangan. Mengembangkan solusi pengolahan data menggunakan Excel, VBA, Python, dan SQL.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#proyek">Lihat Proyek</a>
+        <a class="btn btn-ghost" href="mailto:deninmkt@gmail.com">Hubungi Saya</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="stats" aria-label="Ringkasan pengalaman dan proyek">
+    <div class="stat"><strong>1,3 juta</strong><span>Baris snapshot database historis saham</span></div>
+    <div class="stat"><strong>600–1.000</strong><span>Input data per hari dalam pengalaman supervisi data entry</span></div>
+    <div class="stat"><strong>5–8 orang</strong><span>Tim data entry yang pernah diawasi</span></div>
+  </div>
+
+  <section id="tentang">
+    <div class="section-head"><div class="kicker">Profil</div><h2>Tentang Saya</h2><p class="section-intro">Menghubungkan pengalaman operasional dengan pendekatan pengolahan dan analisis data.</p></div>
+    <div class="about-grid">
+      <div class="panel">
+        <p>Saya memiliki pengalaman dalam pengelolaan data operasional, rekonsiliasi laporan, pemeriksaan konsistensi data, dan analisis pasar keuangan. Dalam pekerjaan sebelumnya, saya menggunakan Excel, formula, dan Pivot Table untuk mengonsolidasikan laporan, memeriksa duplikasi, serta mendukung kebutuhan operasional.</p>
+        <p>Dalam analisis pasar saham, saya mengembangkan otomatisasi menggunakan Excel VBA untuk menangani volume data yang tidak efisien jika diproses manual. Saat ini saya mengembangkan alur pengolahan dan analisis berbasis Python, pandas, dan SQL (SQLite) melalui proyek nyata, termasuk pipeline data dan dashboard Streamlit.</p>
+        <div class="taglist"><span class="tag">Data Reconciliation</span><span class="tag">Data Quality</span><span class="tag">Operational Reporting</span><span class="tag">Data Analysis</span></div>
+      </div>
+      <div class="panel">
+        <h3 style="margin:0 0 10px;color:var(--navy)">Fokus Karier</h3>
+        <ul class="focus-list">
+          <li>Data Processing & Data Operations</li>
+          <li>Reporting Analyst</li>
+          <li>Data Quality / Data Validation</li>
+          <li>Junior Data Analyst</li>
+          <li>Financial Data Analyst</li>
+        </ul>
+        <p style="margin-top:13px;font-size:.9rem">Berbasis di Medan, Indonesia. Prioritas kerja remote; terbuka untuk onsite dengan kompensasi yang sesuai.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyek">
+    <div class="section-head"><div class="kicker">Selected Work</div><h2>Proyek Pilihan</h2><p class="section-intro">Proyek yang menunjukkan penerapan pengolahan data, analisis, dan penyajian informasi.</p></div>
+    <div class="projects">
+      <article class="project featured">
+        <div class="project-top"><span class="project-type">Personal Project · Proyek Utama</span><span class="tag">Python · SQLite · Streamlit</span></div>
+        <h3>IHSG Data Pipeline & Money Flow Analytics</h3>
+        <p>Membangun pipeline pengolahan data pasar saham ke SQLite dengan snapshot database historis sekitar 1,3 juta baris (±230 MB). Melakukan pemeriksaan data historis dan mengembangkan analisis running trade untuk Live Market dan Close Market melalui antarmuka Streamlit.</p>
+        <ul>
+          <li>Pengolahan dan penyimpanan data pasar saham menggunakan Python dan SQLite.</li>
+          <li>Analisis running trade untuk mengamati aliran transaksi pada kondisi Live dan Close Market.</li>
+          <li>Demo analisis tersedia melalui aplikasi Streamlit publik.</li>
+        </ul>
+        <div class="project-links"><a href="https://money-flow.streamlit.app/" target="_blank" rel="noopener">Buka Demo Streamlit MFA ↗</a></div>
+      </article>
+
+      <article class="project">
+        <div class="project-top"><span class="project-type">Proyek Dicoding</span></div>
+        <h3>Analisis Bisnis Supermarket Indonesia</h3>
+        <p>Proyek akhir kelas Belajar Analisis Data untuk Pemula. Mencakup pembersihan dan analisis data menggunakan Google Sheets/SQL, visualisasi melalui Looker Studio, serta analisis prediktif dengan Orange Data Mining.</p>
+        <ul><li>Submission memenuhi seluruh checklist.</li><li>Penilaian Advanced pada dua kriteria dan Skilled pada visualisasi.</li></ul>
+        <div class="project-links">
+          <a href="https://docs.google.com/spreadsheets/d/1pFC4m-t93T9zpC3fKQgjszhIJaGrgxxdleIE21fyUh4/edit?gid=1574341428#gid=1574341428" target="_blank" rel="noopener">Google Sheets ↗</a>
+          <a href="https://datastudio.google.com/reporting/a75aadde-8666-45f5-b037-80fa5e8806d4" target="_blank" rel="noopener">Looker Studio ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-top"><span class="project-type">Proyek Dicoding</span></div>
+        <h3>E-Commerce Sales & Customer Analysis</h3>
+        <p>Proyek akhir kelas Belajar Fundamental Analisis Data. Menggunakan Python dan pandas untuk EDA, analisis tren penjualan dan kontribusi kategori produk, serta segmentasi pelanggan dengan RFM.</p>
+        <ul><li>Mengembangkan dashboard Streamlit interaktif dengan filter periode dan parameter Recency.</li><li>Submission dinyatakan lulus oleh Dicoding.</li></ul>
+        <div class="project-links">
+          <a href="https://github.com/dedykhow/ecommerce-analysis-dashboard" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://ecommerce-analysis-dashboard-dicoding.streamlit.app/" target="_blank" rel="noopener">Live Dashboard ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="keahlian">
+    <div class="section-head"><div class="kicker">Toolkit</div><h2>Keahlian & Tools</h2><p class="section-intro">Kemampuan yang digunakan dalam pengalaman kerja dan proyek pengembangan kompetensi.</p></div>
+    <div class="skills">
+      <div class="skill-card"><h3>Pengolahan Data</h3><p>Input dan konsolidasi data, rekonsiliasi, pemeriksaan duplikasi, validasi, data cleaning, transformasi, dan pelaporan operasional.</p></div>
+      <div class="skill-card"><h3>Spreadsheet & Otomatisasi</h3><p>Microsoft Excel, formula, Pivot Table, Excel VBA, dan Google Sheets.</p></div>
+      <div class="skill-card"><h3>Python & Data Analysis</h3><p>Python, pandas, NumPy, Matplotlib, exploratory data analysis (EDA), dan segmentasi RFM.</p></div>
+      <div class="skill-card"><h3>Database & Query</h3><p>SQL (SQLite), query dan agregasi, serta pengelolaan data historis.</p></div>
+      <div class="skill-card"><h3>Dashboard & Visualisasi</h3><p>Streamlit, Looker Studio, dan Orange Data Mining.</p></div>
+      <div class="skill-card"><h3>Analisis & Pengujian</h3><p>Perumusan kebutuhan analisis, review logika, pemeriksaan konsistensi, dan pengujian hasil pengolahan data.</p></div>
+    </div>
+  </section>
+
+  <section id="pengalaman">
+    <div class="section-head"><div class="kicker">Career</div><h2>Pengalaman Profesional</h2></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="period">2017–Sekarang</div>
+        <div><h3>Independent Financial Market Analyst</h3><div class="org">Analisis pasar keuangan independen</div><ul><li>Menganalisis data harga dan transaksi saham Indonesia dengan screening berbasis Excel dan analisis lanjutan menggunakan Money Flow Analytics.</li><li>Mengembangkan otomatisasi Excel VBA dan pipeline pengolahan data pasar saham menggunakan Python dan SQLite.</li></ul></div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2020–2025</div>
+        <div><h3>Administrasi & Penyusunan Laporan</h3><div class="org">Perusahaan Perdagangan Kayu</div><ul><li>Mengelola sekitar 1.000 formulir operasional per bulan terkait pengangkutan kayu dan administrasi pembayaran pemasok.</li><li>Memeriksa kelengkapan dokumen dan tanda tangan, mencocokkan laporan dengan dokumen sumber, serta menyusun laporan administratif bulanan.</li></ul></div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2010–2017</div>
+        <div><h3>Supervisor Data Entry</h3><div class="org">PT Multi Adiprakasa Manunggal</div><ul><li>Mengawasi 5–8 staf dengan volume sekitar 600–1.000 input per hari dan mengalokasikan pekerjaan berdasarkan tipe serta volume client.</li><li>Merekonsiliasi laporan bulanan, memeriksa potensi duplikasi serial number EDC, dan menyediakan data historis kunjungan merchant.</li></ul></div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2008–2010</div>
+        <div><h3>Supervisor Operasional</h3><div class="org">PT Arta Boga Cemerlang</div><ul><li>Mengawasi aktivitas operasional harian, mengoordinasikan tim, dan memastikan pelaksanaan prosedur kerja.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pendidikan">
+    <div class="education">
+      <div><h3>Pendidikan</h3><p><strong>Sarjana Manajemen</strong><br>Universitas Wiyata Dharma Pontianak<br>2003–2007</p></div>
+      <div><h3>Pengembangan Kompetensi</h3><p>Learning path Data Analyst — Dicoding:</p><ul><li>Dasar Visualisasi Data</li><li>Dasar Structured Query Language (SQL)</li><li>Programming Logic 101</li><li>Memulai Pemrograman dengan Python</li><li>Analisis Data untuk Pemula</li><li>Fundamental Analisis Data</li></ul></div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="contact">
+      <div><div class="kicker">Get in touch</div><h2>Mari terhubung</h2><p>Terbuka untuk peluang di bidang Data Processing, Reporting, Data Operations, Data Quality, dan Data Analysis.</p></div>
+      <div class="contact-links">
+        <a href="mailto:deninmkt@gmail.com">deninmkt@gmail.com</a>
+        <a href="tel:+6281387645027">+62 813-8764-5027</a>
+        <span style="color:#64748b;font-size:.9rem">Medan, Indonesia</span>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Dedy Harjono · Portfolio Profesional</div></footer>
+</body>
+</html>
