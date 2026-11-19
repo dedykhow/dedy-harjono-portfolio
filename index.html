@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio Dedy Harjono — Data Processing, Reporting, Data Operations, dan analisis data.">
-  <title>Dedy Harjono | Data Processing & Reporting</title>
+  <meta name="description" content="Portfolio Dedy Harjono — Data Processing, Data Operations, Reporting, dan Financial Market Data Analytics.">
+  <title>Dedy Harjono | Data Operations & Financial Market Data Analytics</title>
   <style>
     :root {
       --bg: #f5f7fb; --paper: #ffffff; --ink: #152238; --muted: #64748b;
@@ -63,6 +63,13 @@
     .project-links { display:flex; gap:9px; flex-wrap:wrap; margin-top:auto; padding-top:12px; }
     .project-links a { text-decoration:none; color:var(--blue); font-weight:800; font-size:.88rem; border-bottom:1px solid #b8cdf7; }
     .project-links a:hover { color:#1e40af; border-color:#1e40af; }
+    .gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:18px 0 8px; }
+    .gallery figure { margin:0; min-width:0; }
+    .gallery img { display:block; width:100%; aspect-ratio:16/9; object-fit:contain; background:#eef2f7; border:1px solid var(--line); border-radius:10px; }
+    .shot-placeholder { display:flex; align-items:center; justify-content:center; text-align:center; aspect-ratio:16/9; padding:18px; border:1.5px dashed #9aabc2; border-radius:10px; background:#f3f6fb; color:#52627a; font-size:.88rem; }
+    .gallery figcaption { color:var(--muted); font-size:.82rem; margin-top:6px; }
+    .gallery-note { color:var(--muted); font-size:.82rem; margin:4px 0 0 !important; }
+    @media (max-width:560px) { .gallery { grid-template-columns:1fr; } }
     .skills { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
     .skill-card h3 { margin:0 0 8px; color:var(--navy); font-size:1rem; }
     .skill-card p { margin:0; color:var(--muted); font-size:.92rem; }
@@ -159,9 +166,16 @@
         <p>Membangun pipeline pengolahan data pasar saham ke SQLite dengan snapshot database historis sekitar 1,3 juta baris (±230 MB), serta mengembangkan Money Flow Analytics (MFA) untuk analisis running trade Live Market dan Close Market.</p>
         <ul>
           <li>Mengembangkan pendekatan segmentasi transaksi dan estimasi aktivitas big player dengan mempertimbangkan nilai transaksi, frekuensi, likuiditas saham, dan karakteristik broker.</li>
-          <li>MFA dikembangkan sebagai modul analisis mandiri sehingga dapat digunakan dan didemonstrasikan tanpa menunggu database screener.</li>
+          <li>MFA memiliki mode Live Market dan Close Market serta dikembangkan sebagai modul analisis mandiri yang dapat didemonstrasikan tanpa menunggu database screener.</li>
           <li>Pengembangan berikutnya adalah technical stock screener untuk menyaring universe saham sebelum kandidat dianalisis lebih lanjut menggunakan MFA.</li>
         </ul>
+        <div class="gallery" aria-label="Dokumentasi visual Money Flow Analytics">
+          <figure><div class="shot-placeholder"><img src="assets/mfa-live.png" alt="Money Flow Analytics Live Market"></div><figcaption>Live Market — tampilan analisis transaksi berjalan</figcaption></figure>
+          <figure><div class="shot-placeholder"><img src="assets/mfa-close.png" alt="Money Flow Analytics Close Market"></div><figcaption>Close Market — tampilan analisis transaksi setelah pasar tutup</figcaption></figure>
+          <figure><div class="shot-placeholder"><img src="assets/sqlite-schema.png" alt="SQLite Database Schema"></div><figcaption>Database — struktur tabel dan skema SQLite</figcaption></figure>
+          <figure><div class="shot-placeholder"><img src="assets/stock-summary.png" alt="SQLite Stock Summary"></div><figcaption>SQL — jumlah baris tabel Stock_Summary</figcaption></figure>
+        </div>
+        <p class="gallery-note">Dokumentasi visual aplikasi dan proses pengolahan data. Screenshot aktual akan ditambahkan.</p>
         <div class="project-links"><a href="https://money-flow.streamlit.app/" target="_blank" rel="noopener">Buka Demo Streamlit MFA ↗</a></div>
       </article>
 
@@ -170,6 +184,7 @@
         <h3>Analisis Bisnis Supermarket Indonesia</h3>
         <p>Proyek akhir kelas Belajar Analisis Data untuk Pemula. Mencakup pembersihan dan analisis data menggunakan Google Sheets/SQL, visualisasi melalui Looker Studio, serta analisis prediktif dengan Orange Data Mining.</p>
         <ul><li>Submission memenuhi seluruh checklist.</li><li>Penilaian Advanced pada dua kriteria dan Skilled pada visualisasi.</li></ul>
+        <div class="gallery" aria-label="Dokumentasi visual proyek supermarket"><figure><div class="shot-placeholder"><img src="assets/supermarket-dashboard.png" alt="Supermarket Dashboard"></div><figcaption>Visualisasi Analisis Bisnis Supermarket</figcaption></figure></div>
         <div class="project-links">
           <a href="https://docs.google.com/spreadsheets/d/1pFC4m-t93T9zpC3fKQgjszhIJaGrgxxdleIE21fyUh4/edit?gid=1574341428#gid=1574341428" target="_blank" rel="noopener">Google Sheets ↗</a>
           <a href="https://datastudio.google.com/reporting/a75aadde-8666-45f5-b037-80fa5e8806d4" target="_blank" rel="noopener">Looker Studio ↗</a>
@@ -181,6 +196,7 @@
         <h3>E-Commerce Sales & Customer Analysis</h3>
         <p>Proyek akhir kelas Belajar Fundamental Analisis Data. Menggunakan Python dan pandas untuk EDA, analisis tren penjualan dan kontribusi kategori produk, serta segmentasi pelanggan dengan RFM.</p>
         <ul><li>Mengembangkan dashboard Streamlit interaktif dengan filter periode dan parameter Recency.</li><li>Submission dinyatakan lulus oleh Dicoding.</li></ul>
+        <div class="gallery" aria-label="Dokumentasi visual proyek e-commerce"><figure><div class="shot-placeholder"><img src="assets/ecommerce-dashboard.png" alt="Ecommerce Dashboard"></div><figcaption>Dashboard Segmentasi Pelanggan</figcaption></figure></div>
         <div class="project-links">
           <a href="https://github.com/dedykhow/ecommerce-analysis-dashboard" target="_blank" rel="noopener">GitHub ↗</a>
           <a href="https://ecommerce-analysis-dashboard-dicoding.streamlit.app/" target="_blank" rel="noopener">Live Dashboard ↗</a>
@@ -248,7 +264,6 @@
       <div><div class="kicker">Get in touch</div><h2>Mari terhubung</h2><p>Terbuka untuk peluang di bidang Data Processing, Reporting, Data Operations, Data Quality, dan Data Analysis.</p></div>
       <div class="contact-links">
         <a href="mailto:deninmkt@gmail.com">deninmkt@gmail.com</a>
-        <a href="tel:+6281387645027">+62 813-8764-5027</a>
         <span style="color:#64748b;font-size:.9rem">Medan, Indonesia</span>
       </div>
     </div>
